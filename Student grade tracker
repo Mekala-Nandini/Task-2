@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class GradeTracker {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Double> grades = new ArrayList<>();
+        boolean continueInput = true;
+
+        System.out.println("Welcome to the Grade Tracker!");
+
+        while (continueInput) {
+            // Input a grade
+            System.out.print("Enter a grade (or -1 to finish): ");
+            double grade = scanner.nextDouble();
+
+            if (grade == -1) {
+                continueInput = false;
+            } else if (grade >= 0 && grade <= 100) {
+                grades.add(grade);
+            } else {
+                System.out.println("Invalid grade. Please enter a value between 0 and 100.");
+            }
+        }
+
+        if (!grades.isEmpty()) {
+            // Calculate the average grade
+            double total = 0;
+            for (double g : grades) {
+                total += g;
+            }
+            double average = total / grades.size();
+
+            // Determine the letter grade
+            String letterGrade = getLetterGrade(average);
+
+            // Display the results
+            System.out.println("Average Grade: " + average);
+            System.out.println("Letter Grade: " + letterGrade);
+        } else {
+            System.out.println("No grades entered.");
+        }
+
+        scanner.close();
+    }
+
+    public static String getLetterGrade(double average) {
+        if (average >= 90) {
+            return "A";
+        } else if (average >= 80) {
+            return "B";
+        } else if (average >= 70) {
+            return "C";
+        } else if (average >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
+}
