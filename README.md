@@ -1,3 +1,4 @@
+![Student Grade Tracker Output](https://github.com/user-attachments/assets/c33e1601-ccd1-4f23-9e74-6cb58beeaa50)
 **Name:** MEKALA NANDINI
 
 **Company:** CODTECH IT SOLUTIONS
